@@ -1,13 +1,13 @@
 ﻿package day1
 
 import (
-	"os"
+	"AdventOfCode-2024/util"
 	"sort"
 	"strconv"
 	"strings"
 )
 
-const fileName = "day1/input.txt"
+const filename = "day1/input.txt"
 
 func PartOne() int {
 	leftList, rightList, done := getLists()
@@ -53,7 +53,7 @@ func PartTwo() int {
 }
 
 func getLists() ([]int, []int, bool) {
-	content := readFile()
+	content := util.ReadFile(filename)
 	if content == "" {
 		return nil, nil, true
 	}
@@ -77,12 +77,4 @@ func getLists() ([]int, []int, bool) {
 	}
 
 	return leftList, rightList, false
-}
-
-func readFile() string {
-	result, err := os.ReadFile(fileName)
-	if err != nil {
-		return ""
-	}
-	return string(result)
 }
